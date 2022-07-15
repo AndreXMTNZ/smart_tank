@@ -1,3 +1,6 @@
+<head>
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+</head>
 <ion-header>
     <ion-toolbar>
         <ion-title>
@@ -20,21 +23,44 @@
     </ion-segment>
 
     <ion-card *ngIf="seccion == 'auto'">
+        <!-- Temperatura -->
         <ion-item>
             <ion-icon slot="start" name="bar-chart-outline" color="primary"></ion-icon>
             <ion-item>
                 <ion-label>
-                    <strong>Nivel: </strong>{{mediciones}}
+                    <strong>Temperatura </strong>{{mediciones}} °C
                 </ion-label>
             </ion-item>
         </ion-item>
+
+        <!-- TDS -->
         <ion-item>
             <ion-icon slot="start" name="thermometer" color="primary"></ion-icon>
             <ion-item>
                 <ion-label>
-                    <strong>Temp: </strong>{{mediciones}
+                    <strong>TDS: </strong>{{tds}} PPM
                 </ion-label>
             </ion-item>
+        </ion-item>
+
+        <!-- Nivel -->
+        <ion-item>
+            <ion-icon slot="start" name="water-outline" color="primary"></ion-icon>
+            <ion-item>
+                <ion-label>
+                    <strong>Nivel: </strong>{{this.nivel}}
+                </ion-label>
+            </ion-item>
+        </ion-item>
+
+    <!-- pH -->
+    <ion-item>
+        <ion-icon slot="start" name="water-outline" color="primary"></ion-icon>
+        <ion-item>
+            <ion-label>
+                <strong>Ph: </strong>{{ph}}
+            </ion-label>
+        </ion-item>
         </ion-item>
     </ion-card>
 
@@ -49,8 +75,8 @@
             </ion-list-header>
             <ion-item *ngFor="let medicion of mediciones">
                 <ion-label>
-                    <strong>Nivel </strong> {{medicion.nivel}} °C
-                    <p><strong>Fecha </strong>{{medicion.tds}}</p>
+                    <strong>Nivel </strong> {{tds}} °C
+                    <p><strong>Fecha </strong>{{tds}}</p>
                 </ion-label>
             </ion-item>
         </ion-list>
