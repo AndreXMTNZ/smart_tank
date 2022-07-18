@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { tick } from '@angular/core/testing';
+//import { tick } from '@angular/core/testing';
 import { AngularFireDatabase } from '@angular/fire/compat/database';
 //import { start } from 'repl';
 
@@ -11,10 +11,10 @@ import { AngularFireDatabase } from '@angular/fire/compat/database';
 export class TankComponent implements OnInit {
 
   seccion: 'auto' | 'manual' | 'test' = 'auto';
-  mediciones: Mediciones[] = [];
-  tds: Tds [] = [];
-  nivel: Nivel [] = [];  
-  ph: Ph [] = []; 
+  mediciones: string
+  tds: string
+  nivel:string 
+  ph: string
 
   constructor(public firedata: AngularFireDatabase) { 
     this.leerTemperatura();
@@ -27,33 +27,33 @@ export class TankComponent implements OnInit {
 
   leerTemperatura() {
     const path = 'test/temp'
-    this.firedata.object<Mediciones>(path).valueChanges().subscribe( valor1 => {
+    this.firedata.object<string>(path).valueChanges().subscribe( valor1 => {
       console.log('test1 -> ', valor1); 
-      this.mediciones = valor1[0];
+      this.mediciones = valor1;
     })
   }
 
   leerTds() {
     const path = 'test/tds'
-    this.firedata.object<Tds>(path).valueChanges().subscribe( valor2 => {
+    this.firedata.object<string>(path).valueChanges().subscribe( valor2 => {
       console.log('test2 -> ', valor2); 
-      this.tds = valor2[0];
+      this.tds = valor2;
     })
   }
 
   leerNivel() {
     const path = 'test/nivel'
-    this.firedata.object<Nivel>(path).valueChanges().subscribe( valor3 => {
+    this.firedata.object<string>(path).valueChanges().subscribe( valor3 => {
       console.log('test3 -> ', valor3); 
-      this.nivel = valor3[0];
+      this.nivel = valor3;
     })
   }
 
   leerPh() {
     const path = 'test/ph'
-    this.firedata.object<Ph>(path).valueChanges().subscribe( valor4 => {
+    this.firedata.object<string>(path).valueChanges().subscribe( valor4 => {
       console.log('test4 -> ', valor4); 
-      this.ph = valor4[0];
+      this.ph = valor4;
     })
   }
 

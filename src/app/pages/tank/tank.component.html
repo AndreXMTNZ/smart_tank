@@ -25,7 +25,8 @@
     <ion-card *ngIf="seccion == 'auto'">
         <!-- Temperatura -->
         <ion-item>
-            <ion-icon slot="start" name="bar-chart-outline" color="primary"></ion-icon>
+            <ion-icon slot="start" name="thermometer" color="primary"></ion-icon>
+            
             <ion-item>
                 <ion-label>
                     <strong>Temperatura </strong>{{mediciones}} °C
@@ -35,7 +36,8 @@
 
         <!-- TDS -->
         <ion-item>
-            <ion-icon slot="start" name="thermometer" color="primary"></ion-icon>
+            <!--<ion-icon name="bar-chart-outline"></ion-icon>-->
+            <ion-icon slot="start" name="eyedrop-outline" color="primary"></ion-icon>
             <ion-item>
                 <ion-label>
                     <strong>TDS: </strong>{{tds}} PPM
@@ -45,7 +47,7 @@
 
         <!-- Nivel -->
         <ion-item>
-            <ion-icon slot="start" name="water-outline" color="primary"></ion-icon>
+            <ion-icon slot="start" name="speedometer-outline" color="primary"></ion-icon>
             <ion-item>
                 <ion-label>
                     <strong>Nivel: </strong>{{this.nivel}}
@@ -65,7 +67,12 @@
     </ion-card>
 
     <ion-card *ngIf="seccion == 'manual'">
-        Manual
+        <ion-item>
+            <ion-range min="20" max="80" step="2" pin="true">
+                <ion-icon size="small" slot="start" name="snow-outline"></ion-icon>
+                <ion-icon slot="end" name="sunny-outline"></ion-icon>
+            </ion-range>
+        </ion-item>
     </ion-card>
 
     <ion-card *ngIf="seccion == 'test'">
