@@ -55,8 +55,8 @@
             </ion-item>
         </ion-item>
 
-    <!-- pH -->
-    <ion-item>
+        <!-- pH -->
+        <ion-item>
         <ion-icon slot="start" name="water-outline" color="primary"></ion-icon>
         <ion-item>
             <ion-label>
@@ -67,12 +67,106 @@
     </ion-card>
 
     <ion-card *ngIf="seccion == 'manual'">
+        <!-- Lampara boton 1 -->
         <ion-item>
-            <ion-range min="20" max="80" step="2" pin="true">
+            <ion-label>
+                Luminaria 1
+            </ion-label>
+        </ion-item>
+        <ion-item>
+            <ion-toggle name="bot1"  slot="start" (ionChange)="botlamp1($event)"></ion-toggle>
+            <ion-item>
+                <ion-label>
+                    {{lamp1}}
+                </ion-label>
+            </ion-item>    
+        </ion-item>  
+
+        <!-- Lampara boton 2 -->
+        <ion-item>
+            <ion-label>
+                Luminaria 2
+            </ion-label>
+        </ion-item>
+        <ion-item>
+            <ion-toggle name="bot2"  slot="start" (ionChange)="botlamp2($event)"></ion-toggle>
+            <ion-item>
+                <ion-label>
+                    {{lamp2}}
+                </ion-label>
+            </ion-item>    
+        </ion-item> 
+
+        <!-- Filtro -->
+        <ion-item>
+            <ion-label>
+                Filtro 
+            </ion-label>
+        </ion-item>
+        <ion-item>
+            <ion-toggle name="flt"  slot="start" (ionChange)="fltint($event)"></ion-toggle>
+            <ion-item>
+                <ion-label>
+                    {{ind}}
+                </ion-label>
+            </ion-item>    
+        </ion-item>
+
+        <!-- Servo -->
+        <ion-item>
+            <ion-label>
+                Regulador 
+            </ion-label>
+        </ion-item>
+        <ion-item>
+            <ion-toggle name="rgl"  slot="start" (ionChange)="servo($event)"></ion-toggle>
+            <ion-item>
+                <ion-label>
+                    {{rgb}}
+                </ion-label>
+            </ion-item>    
+        </ion-item> 
+
+        <!-- Temperatura -->
+        <ion-item>
+            <ion-label>
+                Temperatura {{umbral}} °C
+            </ion-label>
+        </ion-item>
+        <ion-item>
+            <ion-range min="15" max="35" step="1" pin="true" [value]="umbral" 
+            (ionChange)="rangeChange1($event)" debounce="300">
                 <ion-icon size="small" slot="start" name="snow-outline"></ion-icon>
                 <ion-icon slot="end" name="sunny-outline"></ion-icon>
             </ion-range>
         </ion-item>
+        <!-- TDS -->
+        <ion-item>
+            <ion-label>
+                TDS {{umbral2}} PPM
+            </ion-label>
+        </ion-item>
+        <ion-item>
+            <ion-range min="0" max="2000" step="10" pin="true" [value]="umbral2" 
+            (ionChange)="rangeChange2($event)" debounce="300">
+                <ion-icon size="small" slot="start" name="snow-outline"></ion-icon>
+                <ion-icon slot="end" name="sunny-outline"></ion-icon>
+            </ion-range>
+        </ion-item>
+        <!-- pH -->
+        <ion-item>
+            <ion-label>
+                PH {{umbral3}} 
+            </ion-label>
+        </ion-item>
+        <ion-item>
+            <ion-range min="0" max="14" step="1" pin="true" [value]="umbral3" 
+            (ionChange)="rangeChange3($event)" debounce="300">
+                <ion-icon size="small" slot="start" name="snow-outline"></ion-icon>
+                <ion-icon slot="end" name="sunny-outline"></ion-icon>
+            </ion-range>
+        </ion-item>
+   
     </ion-card>
 
     <ion-card *ngIf="seccion == 'test'">
@@ -82,8 +176,7 @@
             </ion-list-header>
             <ion-item *ngFor="let medicion of mediciones">
                 <ion-label>
-                    <strong>Nivel </strong> {{tds}} °C
-                    <p><strong>Fecha </strong>{{tds}}</p>
+                    
                 </ion-label>
             </ion-item>
         </ion-list>
