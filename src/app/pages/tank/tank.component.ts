@@ -26,7 +26,7 @@ export class TankComponent implements OnInit {
   umbral3: number = 7;
 
   modTemp = 0;
-  modo: string = "auto";
+  //modo: string = "auto";
 
   lamp1: string
   lamp2: string
@@ -77,8 +77,10 @@ export class TankComponent implements OnInit {
   segmentChanged(evento: any) {
     this.seccion = evento.detail.value;
     console.log('evento.detail.value ->', evento.detail.value);
+    const path = 'modo';
+    this.firedata.object(path).set(this.seccion);
     
-    if (evento.detail.value == "auto"){
+    /*if (evento.detail.value == "auto"){
       console.log("modo auto")
       const path = 'modo';
       this.firedata.object(path).set(this.modo);
@@ -100,7 +102,7 @@ export class TankComponent implements OnInit {
       this.firedata.object(path).set(this.modo);
       this.modo = this.seccion;;
       //this.firedata.object('modo').set(this.leerMods)
-    }
+    }*/
     
   }
 
@@ -128,14 +130,19 @@ export class TankComponent implements OnInit {
   botlamp1(evento: any){
     if(this.bot1){
       this.bot1 = false;
+      const path = 'config/bot1';
+      this.firedata.object(path).set(this.bot1);
     }
     else{
       this.bot1 = true;
+      const path = 'config/bot1';
+      this.firedata.object(path).set(this.bot1);
     }
     console.log(this.bot1);
 
     if(this.bot1 == true){
       this.lamp1 = "ON";
+      
     }
 
     if(this.bot1 == false){
@@ -146,9 +153,13 @@ export class TankComponent implements OnInit {
   botlamp2(evento: any){
     if(this.bot2){
       this.bot2 = false;
+      const path = 'config/bot2';
+      this.firedata.object(path).set(this.bot2);
     }
     else{
       this.bot2 = true;
+      const path = 'config/bot2';
+      this.firedata.object(path).set(this.bot2);
     }
     console.log(this.bot2);
 
@@ -164,9 +175,13 @@ export class TankComponent implements OnInit {
   fltint(evento: any){
     if(this.flt){
       this.flt = false;
+      const path = 'config/filtro';
+      this.firedata.object(path).set(this.flt);
     }
     else{
       this.flt = true;
+      const path = 'config/filtro';
+      this.firedata.object(path).set(this.flt);
     }
     console.log(this.flt);
 
@@ -182,9 +197,13 @@ export class TankComponent implements OnInit {
   servo(evento: any){
     if(this.rgl){
       this.rgl = false;
+      const path = 'config/servo';
+      this.firedata.object(path).set(this.rgl);
     }
     else{
       this.rgl = true;
+      const path = 'config/servo';
+      this.firedata.object(path).set(this.rgl);
     }
     console.log(this.rgl);
 
