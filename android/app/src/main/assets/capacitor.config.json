@@ -1,0 +1,6 @@
+{
+	"appId": "com.andrexmtnz.smarttankiot",
+	"appName": "Smart Tank IoT",
+	"webDir": "www",
+	"bundledWebRuntime": false
+}

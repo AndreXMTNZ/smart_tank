@@ -1,6 +1,6 @@
 {
-	"appId": "io.ionic.starter",
-	"appName": "Smart Tank 2",
-	"webDir": "www",
-	"bundledWebRuntime": false
+  "appId": "com.andrexmtnz.smarttankiot",
+  "appName": "Smart Tank IoT",
+  "webDir": "www",
+  "bundledWebRuntime": false
 }
